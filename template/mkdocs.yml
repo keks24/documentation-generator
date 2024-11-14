@@ -1,0 +1,73 @@
+---
+# configuration guide: https://www.mkdocs.org/user-guide/configuration/
+
+# project information
+site_name: "Documentation"
+site_url: ""
+site_description: "Very documentation, much wow."
+site_author: "Ramon Fischer"
+copyright: "2024 Ramon Fischer"
+
+repo_name: ""
+repo_url: ""
+edit_uri: ""
+
+# build directories
+## community themes: https://www.mkdocs.org/user-guide/styling-your-docs/
+theme: "readthedocs"
+docs_dir: "./docs"
+site_dir: "./site"
+
+# plugins
+plugins:
+  # default
+  - "search"
+  # https://github.com/orzih/mkdocs-with-pdf
+  - with-pdf:
+      #author: "{{ site_author }}"
+      #copyright: "{{ copyright }}"
+      #
+      #cover: true
+      #back_cover: false
+      #cover_title: "{{ site_name }}"
+      #cover_logo: "None"
+      #cover_subtitle: "None"
+      cover_subtitle: ""
+      #custom_template_path: "templates"
+      #
+      toc_title: "Table of Contents"
+      #heading_shift: true
+      #toc_level: "3"
+      #ordered_chapter_level: "3"
+      #excludes_children:
+      #  - "release-notes/:upgrading"
+      #  - "release-notes/:changelog"
+      #
+      #exclude_pages:
+      #  - "bugs/"
+      #  - "appendix/contribute/"
+      #convert_iframe:
+      #  - src: "IFRAME SRC"
+      #    img: "POSTER IMAGE URL"
+      #    text: "ALTERNATE TEXT"
+      #  - src: "..."
+      # experimental
+      #two_columns_level: "3"
+      #
+      #render_js: false
+      #headless_chrome_path: "chromium-browser"
+      #
+      #output_path: "pdf/document.pdf"
+      output_path: "/source/pdf/document.pdf"
+      #enabled_if_env: "ENABLE_PDF_EXPORT"
+      enabled_if_env: "ENABLE_PDF_EXPORT"
+      #
+      #debug_html: false
+      #show_anchors: false
+      #verbose: false
+
+# documenation layout
+nav:
+  - home: "index.md"
+  - example:
+    - hello: "example/hello.md"
