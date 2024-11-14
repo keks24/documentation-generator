@@ -45,7 +45,7 @@ INFO    -  Documentation built in 3.59 seconds
 The generated PDF file `document.pdf` will be saved in `project/pdf/`.
 
 ## Use the built-in webserver and work with the project
-The default parameter `serve` can also be left out; see [`CMD` in `Dockerfile`](Dockerfile).
+The default parameter `serve` can also be left out; see [`CMD` in `Dockerfile`](https://codeberg.org/keks24/documentation-generator/src/commit/8156eb716725e983ddc179b43d5a1f61cf9e0b36/Dockerfile#L34).
 ```bash
 $ docker run \
     --rm \
