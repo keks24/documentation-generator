@@ -35,6 +35,10 @@ then
     # see "/root/.bashrc".
     # the environment variable "ENABLE_PDF_EXPORT" comes from "mkdocs-with-pdf";
     # see "/source/mkdocs.yml"
+    # in order to get rid of the error:
+    # Could not load theme handler readthedocs: No module named 'mkdocs_with_pdf.themes.readthedocs'
+    # the theme "mkdocs-material" need to be installed along with "mkdocs-with-pdf":
+    # pipx inject mkdocs-with-pdf mkdocs-material
     ENABLE_PDF_EXPORT="1" /root/.local/bin/mkdocs build \
         --config-file="/source/mkdocs.yml" \
         --site-dir="/tmp/site/"
