@@ -16,6 +16,7 @@ project//
 │   ├── example/
 │   │   ├── hello.md
 │   │   └── img/
+│   │       └── .gitkeep
 │   ├── img/
 │   │   └── .gitkeep
 │   └── index.md
