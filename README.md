@@ -7,7 +7,7 @@ This repository shall contain a `unifed documentation solution`.
 $ mkdir "project/"
 $ docker run \
     --rm \
-    --user root \
+    --user root:root \
     --volume "./project:/source" \
     documentation-generator:latest \
     init
@@ -28,7 +28,7 @@ project//
 ```bash
 $ docker run \
     --rm \
-    --user root
+    --user root:root
     --volume "./project:/source" \
     documentation-generator:latest \
     make-pdf
