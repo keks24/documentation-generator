@@ -53,7 +53,7 @@ The default parameter `serve` can also be left out; see [`CMD` in `Dockerfile`](
 $ docker run \
     --rm \
     --volume "./project:/source" \
-    --publish "8000:8000" \
+    --publish "127.0.0.1:8000:8000" \
     documentation-generator:latest \
     serve
 WARNING -  without generate PDF(set environment variable ENABLE_PDF_EXPORT to 1 to enable)
