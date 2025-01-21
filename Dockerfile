@@ -13,11 +13,16 @@ FROM debian:bookworm-slim
             pipx && \
         rm --recursive --force "/var/lib/apt/lists/"
 
-    # install "mkdocs" in an isolated environment via "pipx" even as user "root"!
-    # the executable will be available under "/root/.local/bin/".
-    RUN pipx install mkdocs-with-pdf --include-deps && \
-        # ensure, that "/root/.local/bin/" is available in "${PATH}"; see "/root/.bashrc".
-        pipx ensurepath
+    RUN groupadd \
+            --gid="1000" \
+            www-mkdocs && \
+        useradd \
+            --uid="1000" \
+            --gid="1000" \
+            --create-home \
+            --home-dir="/home/www-mkdocs" \
+            --shell="/sbin/nologin" \
+            www-mkdocs
 
     RUN mkdir "/source/"
 
@@ -28,6 +33,15 @@ FROM debian:bookworm-slim
     COPY "./entrypoint.sh" "/"
 
     RUN chmod +x "/entrypoint.sh"
+
+    USER www-mkdocs
+
+    # install "mkdocs" in an isolated environment via "pipx" (even as user "root")!
+    # the executable will be available under "/home/www-mkdocs/.local/bin/".
+    RUN pipx install mkdocs-with-pdf --include-deps && \
+        # ensure, that "/root/.local/bin/" is available in "${PATH}";
+        # see "/home/www-mkdocs/.bashrc".
+        pipx ensurepath
 
     ENTRYPOINT ["/entrypoint.sh"]
 

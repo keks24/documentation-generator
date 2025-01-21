@@ -31,26 +31,26 @@ then
 elif [[ "${command}" == "make-pdf" ]]
 then
     # generate pdf file "document.pdf" in "/source/pdf/".
-    # the executable "/root/.local/bin/mkdocs" was made available via "pipx ensurepath";
-    # see "/root/.bashrc".
+    # the executable "/home/www-mkdocs/.local/bin/mkdocs" was made available via "pipx ensurepath";
+    # see "/home/www-mkdocs/.bashrc".
     # the environment variable "ENABLE_PDF_EXPORT" comes from "mkdocs-with-pdf";
     # see "/source/mkdocs.yml"
     # in order to get rid of the error:
     # Could not load theme handler readthedocs: No module named 'mkdocs_with_pdf.themes.readthedocs'
     # the theme "mkdocs-material" need to be installed along with "mkdocs-with-pdf":
     # pipx inject mkdocs-with-pdf mkdocs-material
-    ENABLE_PDF_EXPORT="1" /root/.local/bin/mkdocs build \
+    ENABLE_PDF_EXPORT="1" /home/www-mkdocs/.local/bin/mkdocs build \
         --config-file="/source/mkdocs.yml" \
         --site-dir="/tmp/site/"
 elif [[ "${command}" == "serve" ]]
 then
     # generate website
-    /root/.local/bin/mkdocs build \
+    /home/www-mkdocs/.local/bin/mkdocs build \
         --config-file "/source/mkdocs.yml" \
         --site-dir "/tmp/site/"
 
     # run "mkdocs serve" in foreground. use "exec", in order to catch signals like "SIGTERM".
-    exec /root/.local/bin/mkdocs serve \
+    exec /home/www-mkdocs/.local/bin/mkdocs serve \
         --dev-addr="0.0.0.0:8000" \
         --config-file="/source/mkdocs.yml"
 fi

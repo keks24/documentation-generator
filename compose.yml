@@ -1,6 +1,7 @@
 ---
 services:
   webserver:
+    user: "www-mkdocs"
     build:
       context: "."
     ports:
