@@ -9,7 +9,7 @@ $ docker build --tag="documentation-generator:latest" .
 
 ## Initialise project
 ```bash
-$ mkdir "project/"
+$ mkdir "./project/"
 $ docker run \
     --rm \
     --user="root:root" \
