@@ -7,9 +7,9 @@ This repository shall contain a `unifed documentation solution`.
 $ mkdir "project/"
 $ docker run \
     --rm \
-    --user root:root \
-    --volume "./project:/source" \
-    documentation-generator:latest \
+    --user="root:root" \
+    --volume="./project/:/source/" \
+    "documentation-generator:latest" \
     init
 $ tree -a "project/"
 project//
@@ -28,9 +28,9 @@ project//
 ```bash
 $ docker run \
     --rm \
-    --user root:root
-    --volume "./project:/source" \
-    documentation-generator:latest \
+    --user="root:root"
+    --volume="./project/:/source/" \
+    "documentation-generator:latest" \
     make-pdf
 ERROR   -  Could not load theme handler readthedocs: No module named 'mkdocs_with_pdf.themes.readthedocs'
 INFO    -  Cleaning site directory
@@ -52,9 +52,9 @@ The default parameter `serve` can also be left out; see [`CMD` in `Dockerfile`](
 ```bash
 $ docker run \
     --rm \
-    --volume "./project:/source" \
-    --publish "127.0.0.1:8000:8000" \
-    documentation-generator:latest \
+    --volume="./project/:/source/" \
+    --publish="127.0.0.1:8000:8000" \
+    "documentation-generator:latest" \
     serve
 WARNING -  without generate PDF(set environment variable ENABLE_PDF_EXPORT to 1 to enable)
 INFO    -  Cleaning site directory
