@@ -2,6 +2,11 @@
 This repository shall contain a `unifed documentation solution`.
 
 # Usage
+## Build image
+```bash
+$ docker build --tag="documentation-generator:latest" .
+```
+
 ## Initialise project
 ```bash
 $ mkdir "project/"
