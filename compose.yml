@@ -1,10 +1,10 @@
 ---
 services:
   webserver:
-    user: "www-mkdocs:www-mkdocs"
     build:
       context: "."
     ports:
       - "127.0.0.1:8000:8000"
+    user: "www-mkdocs:www-mkdocs"
     volumes:
-      - "./project:/source"
+      - "./project/:/source/"
