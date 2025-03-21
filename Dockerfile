@@ -38,8 +38,8 @@ FROM debian:bookworm-slim
 
     # install "mkdocs" in an isolated environment via "pipx" (even as user "root")!
     # the executable will be available under "/home/www-mkdocs/.local/bin/".
-    RUN pipx install mkdocs-with-pdf --include-deps && \
-        # ensure, that "/root/.local/bin/" is available in "${PATH}";
+    RUN pipx install --include-deps mkdocs-with-pdf && \
+        # ensure, that "/home/www-mkdocs/.local/bin/" is available in "${PATH}";
         # see "/home/www-mkdocs/.bashrc".
         pipx ensurepath
 
